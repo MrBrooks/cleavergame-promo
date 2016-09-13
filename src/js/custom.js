@@ -23,6 +23,84 @@ function ProductInfo(){
 
   init();
 }
+function WindowUpdater(opts){ 
+  var self = this, timer;
+  // var opt = [
+  //   {
+  //     event: 'scroll',
+  //     actions: [] 
+  //   },
+  //   {
+  //     event: 'resize',
+  //     actions: []
+  //   }s
+  // ];
+  self.add = function(event, func){
+    for(var i = 0; i < opts.length; i++){
+      if(opts[i].event === event){
+        opts[i].actions.push(func);
+        break;
+      }
+    }
+  };
+
+  self.update = function(event){
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      // console.log(event);
+      if(event.data !== null){
+        for(var i = 0; i < opts[event.data].actions.length; i++){
+          opts[event.data].actions[i]();
+        }
+      }
+      //do smthng
+    },50);
+  };
+
+  self.onEvents = function(){
+    for(var i = 0; i < opts.length; i++){
+      $(window).on(opts[i].event, i, self.update);
+    }
+  };
+
+  // self.initScroll = function(){
+  // };
+
+  // self.initResize = function(){
+  // };
+
+  // self.initAll = function(){
+  // };
+  self.onEvents();
+}
+
+function SameHeight(selector, items){
+  var parents = $(selector);
+  var childs = [], max_height = 0, h = 0;
+
+  function init(){
+    parents.each(function(){
+      childs.push($(this).children(items));
+    });
+    update();
+  }
+  
+  function update(){
+    console.log('in update');
+    for(var i = 0; i < childs.length; i++){
+      max_height = 0;
+      childs[i].each(function(){
+        h = $(this).height();
+        max_height = max_height < h? h : max_height;
+      });
+      childs[i].height(max_height);
+    }
+  }
+
+  this.update = update;
+
+  init();
+}
 
 $(document).ready(function() {
 
@@ -33,8 +111,20 @@ $(document).ready(function() {
  
   $(".slider, #comments-slider").owlCarousel({
     items: 1,
-    loop: true
+    loop: true,
+    nav: true,
+    navText: ['<div class="svg-sprite--arrow-left"></div>','<div class="svg-sprite--arrow-right"></div>']
   });
 
   var product_info = new ProductInfo();
+  var same_height = new SameHeight('.same-height', '.target');
+  var window_updater = new WindowUpdater([
+    {
+      event: "resize",
+      actions: [
+        // anim_on_scroll.updateItems,
+        same_height.update
+      ]
+    }
+  ]);
 });

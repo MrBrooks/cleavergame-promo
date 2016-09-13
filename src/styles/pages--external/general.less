@@ -176,11 +176,15 @@ h2{
     background-color: @red;
     color: #fff;
     text-transform: uppercase;
-    padding: 130px 60px;
+    // padding: 130px 60px;
+    // box-sizing: border-box;
   }
   .pic{
     &:extend(.full-bg);
     height: 402px;
+  }
+  h2{
+    padding: 130px 60px;
   }
 }
 .about-block{
@@ -189,6 +193,12 @@ h2{
   // margin-top: -60px;
   position: relative;
   top: -60px;
+  @media screen and (min-width: 1080px){
+    top: -120px;
+  }
+  @media screen and (min-width: 1480px){
+    top: -180px;
+  }
   .title{
     padding: 20px 60px;
   }
@@ -205,6 +215,14 @@ h2{
     background-color: #fff;
     padding: 25px 0 70px;
     color: @gray-dark;
+    @media screen and (min-width: 1080px){
+      padding-top: 50px;
+      padding-bottom: 80px;
+    }
+    @media screen and (min-width: 1480px){
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
   }
   .deform{
     &:after, &:before{
@@ -216,10 +234,24 @@ h2{
       transform: skewY(3deg);
       position: relative;
       top: -25px;
+      @media screen and (min-width: 1080px){
+        top: -35px;
+        height: 70px;
+      }
+      @media screen and (min-width: 1480px){
+        top: -50px;
+        height: 110px;
+      }
     }
     &:before{
       transform: skewY(-3deg);
       top: 25px;
+      @media screen and (min-width: 1080px){
+        top: 35px;
+      }
+      @media screen and (min-width: 1480px){
+        top: 50px;
+      }
     }
     &:after{
       box-shadow: 0px 9px 9px 0px rgba(3, 3, 3, 0.1);
@@ -242,6 +274,7 @@ h2{
   }
   .item{
     width: 100%;
+    background-color: #fff;
     &:nth-child(even){
       .content{
         float: right;
@@ -270,8 +303,11 @@ h2{
     display: inline-block;
     float: right;
     width: 100%/3;
-    padding: 45px 35px;
+    
     background-color: #fff;
+    &>div{
+      padding: 45px 35px;
+    }
     .title{
       font-size: 16px;
       color: @black;
@@ -335,6 +371,21 @@ h2{
     top: 45px;
     right: 20px;
     cursor: pointer;
+  }
+}
+.slider{
+  position: relative;
+  .owl-nav{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    &>div{
+      display: inline-block;
+    }
   }
 }
 .team-block{
@@ -515,6 +566,32 @@ h2{
         transform: skewY(@skewdeg);
       }
     }
+  }
+  position: relative;
+  .owl-prev, .owl-next{
+    position: absolute;
+    width: 100px;
+    top: 0;
+    left: -50px;
+    height: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    &>div{
+      display: inline-block;
+      margin: auto;
+    }
+  }
+  .owl-next{
+    right: -50px;
+    left: initial;
   }
   .item{
     background-color: #fff;
