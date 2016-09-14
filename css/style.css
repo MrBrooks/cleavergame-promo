@@ -4721,6 +4721,10 @@ h2
         margin-bottom: 40px;
     }
 }
+.team-block .people img
+{
+    width: 100%;
+}
 .team-block .backgrounds
 {
     position: absolute;
@@ -4807,6 +4811,7 @@ h2
     text-align: center;
 
     color: #fff;
+    background-image: url(../img/images/banner_2.jpg);
 }
 .pluses-block .title
 {
