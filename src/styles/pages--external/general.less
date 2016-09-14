@@ -264,6 +264,7 @@ br{
   }
   .pic{
     &:extend(.full-bg);
+    background-image: url(../img/images/start-banner.jpg);
     height: 402px;
     @media screen and (max-width: @mobile){
       height: 200px;
@@ -603,6 +604,11 @@ br{
       padding: 0 10px;
     }
   }
+  br{
+    @media screen and (max-width: @mobile){
+      display: initial;
+    }
+  }
   .descr{
     width: 33%;
     margin: auto;
@@ -815,6 +821,9 @@ br{
   margin: auto;
   @media screen and (max-width: @mobile){
     width: 100%;
+  }
+  img{
+    transform-style: flat;
   }
   .owl-item{
     padding: 50px 0;

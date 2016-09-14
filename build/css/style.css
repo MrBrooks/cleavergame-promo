@@ -4091,6 +4091,8 @@ h2
 .start-block .pic
 {
     height: 402px;
+
+    background-image: url(../img/images/start-banner.jpg);
 }
 @media screen and (max-width: 768px)
 {
@@ -4652,6 +4654,13 @@ h2
         padding: 0 10px;
     }
 }
+@media screen and (max-width: 768px)
+{
+    .team-block br
+    {
+        display: initial;
+    }
+}
 .team-block .descr
 {
     width: 33%;
@@ -4987,6 +4996,11 @@ h2
     {
         width: 100%;
     }
+}
+#comments-slider img
+{
+    -webkit-transform-style: flat;
+            transform-style: flat;
 }
 #comments-slider .owl-item
 {
