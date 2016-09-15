@@ -4442,6 +4442,7 @@ h2
     -webkit-transition-delay: 200ms;
             transition-delay: 200ms;
 
+    color: #fff;
     background-color: rgba(0, 0, 0, .7);
 }
 @media screen and (max-width: 768px)
