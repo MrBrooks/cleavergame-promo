@@ -14791,3 +14791,23 @@ $(document).ready(function() {
     }
   });
 });
+
+
+//google map
+var google_map;
+
+function initMap() {
+  google_map = new google.maps.Map(document.getElementById('google-map'), {
+    center: {lat: 59.958153, lng: 30.278041},
+    zoom: 17,
+    disableDefaultUI: true,
+    scrollwheel: false,
+    zoomControl: true
+  });
+  var marker = new google.maps.Marker({
+    position: {lat: 59.958153, lng: 30.278041},
+    map: google_map,
+    icon: 'img/svg/map_point.svg',
+    optim: false
+  });
+}
