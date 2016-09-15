@@ -422,10 +422,12 @@ br{
     width: 100%/3*2;
     // flex-grow: 2;
     position: relative;
-    overflow: auto;
+    // overflow: auto;
     display: inline-block;
     float: left;
+    height: 550px;
     @media screen and (max-width: @mobile){
+      height: auto;
       width: 100%;
       overflow: visible;
     }
@@ -494,6 +496,8 @@ br{
     padding: 45px 90px 45px 60px;
     transition: all 500ms;
     transition-delay: 200ms;
+    height: 550px;
+    overflow: auto;
     @media screen and (max-width: @mobile){
       padding: 10px;
       padding-top: 40px;
@@ -579,26 +583,63 @@ br{
 }
 .slider{
   position: relative;
-  .owl-nav{
+  // .owl-nav{
+  //   position: absolute;
+  //   width: 100%;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 50px;
+  //   text-align: center;
+  //   margin-bottom: 10px;
+  //   &>div{
+  //     display: inline-block;
+  //   }
+  //   @media screen and (max-width: @mobile){
+  //     bottom: -60px;
+  //     z-index: 1000;
+  //   }
+  // }
+  .owl-prev, .owl-next{
     position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    height: 50px;
+    width: 50px;
+    top: 0;
+    left: 10px;
+    height: 100%;
     text-align: center;
     margin-bottom: 10px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
     &>div{
       display: inline-block;
+      margin: auto;
     }
-    @media screen and (max-width: @mobile){
-      bottom: -60px;
-      z-index: 1000;
-    }
+    // @media screen and (max-width: @mobile){
+    //   left: 0px;
+    //   display: block;
+    //   padding-top: 60px;
+    //   width: 50px;
+    // }
+  }
+  .owl-next{
+    right: 10px;
+    left: initial;
+    // @media screen and (max-width: @mobile){
+    //   right: 0px;
+    // }
   }
   .image{
     &:extend(.full-bg);
-    min-height: 550px;
+    height: 550px;
     width: 100%;
+    @media screen and (max-width: @mobile){
+      height: 300px;
+    }
   }
 }
 .team-block{

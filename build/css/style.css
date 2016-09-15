@@ -4368,9 +4368,9 @@ h2
 
     display: inline-block;
     float: left;
-    overflow: auto;
 
     width: 66.66666667%;
+    height: 550px;
 }
 @media screen and (max-width: 768px)
 {
@@ -4379,6 +4379,7 @@ h2
         overflow: visible;
 
         width: 100%;
+        height: auto;
     }
 }
 @media screen and (max-width: 768px)
@@ -4466,7 +4467,9 @@ h2
     left: 0;
 
     display: none;
+    overflow: auto;
 
+    height: 550px;
     padding: 45px 90px 45px 60px;
 
     -webkit-transition: all 500ms;
@@ -4615,34 +4618,60 @@ h2
 {
     position: relative;
 }
-.slider .owl-nav
+.slider .owl-prev,
+.slider .owl-next
 {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 0;
+    left: 10px;
 
-    width: 100%;
-    height: 50px;
+    display: -webkit-flex;
+    display:    -moz-flex;
+    display:     -ms-flex;
+    display:      -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display:         flex;
+            flex-direction: column;
+
+    width: 50px;
+    height: 100%;
     margin-bottom: 10px;
 
     text-align: center;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
 }
-.slider .owl-nav > div
+.slider .owl-prev > div,
+.slider .owl-next > div
 {
     display: inline-block;
+
+    margin: auto;
 }
-@media screen and (max-width: 768px)
+.slider .owl-next
 {
-    .slider .owl-nav
-    {
-        z-index: 1000;
-        bottom: -60px;
-    }
+    right: 10px;
+    left: initial;
 }
 .slider .image
 {
     width: 100%;
-    min-height: 550px;
+    height: 550px;
+}
+@media screen and (max-width: 768px)
+{
+    .slider .image
+    {
+        height: 300px;
+    }
 }
 .team-block
 {
