@@ -269,6 +269,9 @@ br{
     @media screen and (max-width: @mobile){
       height: 200px;
     }
+    @media screen and (min-width: 1280px){
+      height: 600px;
+    }
   }
   h2{
     padding: 130px 60px;
@@ -284,6 +287,7 @@ br{
   position: relative;
   top: -60px;
   max-width: 1024px;
+  margin: auto;
   @media screen and (min-width: 1080px){
     top: -120px;
   }
@@ -398,6 +402,7 @@ br{
   .item{
     width: 100%;
     background-color: #fff;
+    margin-bottom: 10px;
     &:nth-child(even){
       .content{
         float: right;
@@ -589,6 +594,11 @@ br{
       bottom: -60px;
       z-index: 1000;
     }
+  }
+  .image{
+    &:extend(.full-bg);
+    min-height: 550px;
+    width: 100%;
   }
 }
 .team-block{
