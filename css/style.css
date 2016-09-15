@@ -3721,9 +3721,10 @@ The `.retina-sprites` mixin generates a CSS rule and media query for retina grou
 body
 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
 
     color: #3e3e3e;
+    color: #616161;
     background-color: #f1f1f1;
 }
 @media screen and (max-width: 768px)
@@ -3837,6 +3838,10 @@ header .menu a
 
     width: 100%;
 }
+header .menu a:hover
+{
+    text-decoration: none;
+}
 header .menu li
 {
     font-size: 16px;
@@ -3889,6 +3894,10 @@ footer li:hover
     text-decoration: underline;
 
     color: #80b835;
+}
+footer a
+{
+    color: #fff;
 }
 footer .address,
 footer .address2
@@ -4130,20 +4139,6 @@ h2
     padding: 0 60px;
     padding-top: 0;
 }
-@media screen and (min-width: 1080px)
-{
-    .about-block
-    {
-        top: -120px;
-    }
-}
-@media screen and (min-width: 1480px)
-{
-    .about-block
-    {
-        top: -180px;
-    }
-}
 @media screen and (max-width: 768px)
 {
     .about-block
@@ -4245,26 +4240,6 @@ h2
 
     background-color: #fff;
 }
-@media screen and (min-width: 1080px)
-{
-    .about-block .deform:after,
-    .about-block .deform:before
-    {
-        top: -35px;
-
-        height: 70px;
-    }
-}
-@media screen and (min-width: 1480px)
-{
-    .about-block .deform:after,
-    .about-block .deform:before
-    {
-        top: -50px;
-
-        height: 110px;
-    }
-}
 @media screen and (max-width: 768px)
 {
     .about-block .deform:after,
@@ -4280,20 +4255,6 @@ h2
     -webkit-transform: skewY(-3deg);
         -ms-transform: skewY(-3deg);
             transform: skewY(-3deg);
-}
-@media screen and (min-width: 1080px)
-{
-    .about-block .deform:before
-    {
-        top: 35px;
-    }
-}
-@media screen and (min-width: 1480px)
-{
-    .about-block .deform:before
-    {
-        top: 50px;
-    }
 }
 .about-block .deform:after
 {
@@ -4336,7 +4297,7 @@ h2
 .products-block .item
 {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
 
     background-color: #fff;
 }
@@ -4405,6 +4366,10 @@ h2
 .products-block p
 {
     margin-bottom: 20px;
+}
+.products-block .btn
+{
+    display: block;
 }
 .products-block .info
 {
@@ -4477,7 +4442,6 @@ h2
     -webkit-transition-delay: 200ms;
             transition-delay: 200ms;
 
-    color: #fff;
     background-color: rgba(0, 0, 0, .7);
 }
 @media screen and (max-width: 768px)
@@ -4532,8 +4496,20 @@ h2
 }
 .products-block .popup .descr
 {
+    font-size: 12px;
+
     width: 100%;
     margin: initial;
+    padding-right: 10px;
+}
+.products-block .popup .plus
+{
+    display: inline-block;
+
+    width: 30%;
+    max-width: 150px;
+
+    vertical-align: top;
 }
 .products-block .popup .hr
 {
@@ -4548,20 +4524,7 @@ h2
 }
 .products-block .popup .pluses
 {
-    display: -webkit-inline-flex;
-    display:    -moz-inline-flex;
-    display:     -ms-inline-flex;
-    display:      -o-inline-flex;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display:         inline-flex;
-
     width: 100%;
-
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-            justify-content: space-between;
 }
 .products-block .popup-open:disabled
 {
@@ -4681,6 +4644,13 @@ h2
     padding-bottom: 60px;
 
     text-align: center;
+}
+@media screen and (min-width: 1280px)
+{
+    .team-block
+    {
+        padding-bottom: 120px;
+    }
 }
 .team-block h2
 {
@@ -5038,6 +5008,7 @@ h2
     position: relative;
 
     width: 66.66666667%;
+    max-width: 700px;
     margin: auto;
 }
 @media screen and (max-width: 768px)
@@ -5159,6 +5130,7 @@ h2
 #comments-slider .item
 {
     padding: 60px;
+    padding-top: 10px;
 
     -webkit-transform: skewY(4deg);
         -ms-transform: skewY(4deg);
