@@ -3966,6 +3966,7 @@ a:focus
 }
 .full-bg,
 .start-block .pic,
+.slider .image,
 .pluses-block .content
 {
     background-image: url(http://placehold.it/800x800);
@@ -4101,6 +4102,13 @@ h2
         height: 200px;
     }
 }
+@media screen and (min-width: 1280px)
+{
+    .start-block .pic
+    {
+        height: 600px;
+    }
+}
 .start-block h2
 {
     padding: 130px 60px;
@@ -4118,6 +4126,7 @@ h2
     top: -60px;
 
     max-width: 1024px;
+    margin: auto;
     padding: 0 60px;
     padding-top: 0;
 }
@@ -4327,6 +4336,7 @@ h2
 .products-block .item
 {
     width: 100%;
+    margin-bottom: 10px;
 
     background-color: #fff;
 }
@@ -4628,6 +4638,11 @@ h2
         z-index: 1000;
         bottom: -60px;
     }
+}
+.slider .image
+{
+    width: 100%;
+    min-height: 550px;
 }
 .team-block
 {
