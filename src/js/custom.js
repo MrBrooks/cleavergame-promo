@@ -1,7 +1,26 @@
 /**************************************/
 /* Custom JavaScript files supervisor */
 /**************************************/
+function ProductCalc(){
+  var checkboxes, result, sum = 0;
 
+  function init(){
+    checkboxes = $("#book-form input[type='checkbox']");
+    result = $("#book-form #result>span");
+    checkboxes.on("change", recalc);
+  }
+  function recalc(event){
+    if(this.checked){
+      sum += parseInt($(this).attr("data-price"));
+    } else{
+      sum -= parseInt($(this).attr("data-price"));
+    }
+    // console.log(event);
+    // sum += parseInt($(this).attr("data-price"));
+    result.text(sum);
+  }
+  init();
+}
 function ProductInfo(){
   var products = $(".products-block .item");
 
@@ -102,6 +121,21 @@ function SameHeight(selector, items){
   init();
 }
 
+function BookPopup(){
+  var popup = $("#popup-book"),
+      btn = $(".open-book-popup"),
+      btn_close = popup.find("#btn-close");
+
+  btn.on("click", function(){
+    popup.addClass("active");
+    $("html").css("overflow","hidden");
+  });
+  btn_close.on("click", function(){
+    popup.removeClass("active");
+    $("html").css("overflow","auto");
+  });
+}
+
 $(document).ready(function() {
 
     /* Custom */
@@ -118,6 +152,15 @@ $(document).ready(function() {
 
   var product_info = new ProductInfo();
   var same_height = new SameHeight('.same-height', '.target');
+  var calc = new ProductCalc();
+  var popup = new BookPopup();
+  var ajax_submit = new AjaxSubmit({
+    form: "#book-form",
+    message: "button",
+    message_succsess: "Товар заказан"
+  });
+
+  $("input[name='phone']").mask('+7 (000) 000-00-00');
   var window_updater = new WindowUpdater([
     {
       event: "resize",
@@ -143,23 +186,3 @@ $(document).ready(function() {
     }
   });
 });
-
-
-//google map
-var google_map;
-
-function initMap() {
-  google_map = new google.maps.Map(document.getElementById('google-map'), {
-    center: {lat: 59.958153, lng: 30.278041},
-    zoom: 17,
-    disableDefaultUI: true,
-    scrollwheel: false,
-    zoomControl: true
-  });
-  var marker = new google.maps.Marker({
-    position: {lat: 59.958153, lng: 30.278041},
-    map: google_map,
-    icon: 'img/svg/map_point.svg',
-    optim: false
-  });
-}

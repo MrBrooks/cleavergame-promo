@@ -210,7 +210,7 @@ gulp.task('png-sprite', function () {
         retinaSrcFilter: projectPath.src.pngRetinaSprite,
         retinaImgName: 'png-sprite-2x.png',
         retinaImgPath: '../img/sprites/png/png-sprite-2x.png',
-        padding: 0,
+        padding: 1,
         cssName: '_png-sprite.less',
         cssVarMap: function (sprite) {
             sprite.name = 'sprite__' + sprite.name;
@@ -234,7 +234,7 @@ gulp.task('svg-sprite', function () {
         .pipe(svgspritesheet({
             cssPathNoSvg: '../img/sprites/svg/svg-sprite.png',
             cssPathSvg: '../img/sprites/svg/svg-sprite.svg',
-            padding: 0,
+            padding: 1,
             pixelBase: 16,
             positioning: 'packed',
             templateSrc: projectPath.src.svgSpriteTpl,

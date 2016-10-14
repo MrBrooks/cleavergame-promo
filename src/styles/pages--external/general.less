@@ -260,35 +260,55 @@ br{
 }
 
 .start-block{
+  &:extend(.full-bg);
+  background-image: url(../img/images/banner_nig.jpg);
+  padding: 55px 0;
   .slogan{
-    background-color: @red;
-    background-image: -moz-linear-gradient( 30deg, rgb(247,31,62) 0%, rgb(167,13,37) 100%);
-    background-image: -webkit-linear-gradient( 30deg, rgb(247,31,62) 0%, rgb(167,13,37) 100%);
-    background-image: -ms-linear-gradient( 30deg, rgb(247,31,62) 0%, rgb(167,13,37) 100%);
+    // background-color: @red;
+    // background-image: -moz-linear-gradient( 30deg, rgb(247,31,62) 0%, rgb(167,13,37) 100%);
+    // background-image: -webkit-linear-gradient( 30deg, rgb(247,31,62) 0%, rgb(167,13,37) 100%);
+    // background-image: -ms-linear-gradient( 30deg, rgb(247,31,62) 0%, rgb(167,13,37) 100%);
     color: #fff;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     @media screen and (max-width: @mobile){
-      font-size: 14px;
       text-align: center;
     }
     // padding: 130px 60px;
     // box-sizing: border-box;
   }
+  .banner{
+    background-color: #fff;
+    border: 5px solid @green;
+    padding: 50px 30px;
+    text-align: center;
+    max-width: 400px;
+    span{
+      color: @green;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+    .btn{
+      margin-top: 30px;
+    }
+  }
+  .quote{
+    color: #fff;
+    padding: 10px 0;
+    font-size: 14px;
+  }
   .pic{
     &:extend(.full-bg);
-    background-image: url(../img/images/start-banner.jpg);
     height: 402px;
     @media screen and (max-width: @mobile){
       height: 200px;
     }
-    @media screen and (min-width: 1280px){
-      height: 600px;
-    }
   }
   h2{
     padding: 130px 60px;
+    padding-top: 75px;
     @media screen and (max-width: @mobile){
       padding: 45px 10px;
+      font-size: 20px;
     }
   }
 }
@@ -465,6 +485,10 @@ br{
   }
   .btn{
     display: block;
+    @media screen and (max-width: @mobile){
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   .info{
     // flex-grow: 1;
@@ -1082,21 +1106,21 @@ br{
 
 
 //CORRECT SVG SPRITE CLASSES
-.svg-sprite--vk{
-  width: 39px;
-}
-.svg-sprite--fb{
-  width: 39px;
-}
-.svg-sprite--inst{
-  width: 39px;
-}
-.svg-sprite--vk_header{
-  width: 18px;
-}
-.svg-sprite--inst_header{
-  width: 18px;
-}
+// .svg-sprite--vk{
+//   width: 39px;
+// }
+// .svg-sprite--fb{
+//   width: 39px;
+// }
+// .svg-sprite--inst{
+//   width: 39px;
+// }
+// .svg-sprite--vk_header{
+//   width: 18px;
+// }
+// .svg-sprite--inst_header{
+//   width: 18px;
+// }
 @media screen and (max-width: @mobile){
   .svg-sprite--logo{
     background-image: url("../img/sprites/svg/svg-sprite.svg");
@@ -1104,10 +1128,178 @@ br{
     width: 216px;
     height: 44px;
   }
-  .svg-sprite--cross{
-    background-image: url("../img/sprites/svg/svg-sprite.svg");
-    background-position: -448px -197px;
-    width: 19px;
-    height: 19px;
+  // .svg-sprite--cross{
+  //   background-image: url("../img/sprites/svg/svg-sprite.svg");
+  //   background-position: -448px -197px;
+  //   width: 19px;
+  //   height: 19px;
+  // }
+}
+#popup-book{
+  position: fixed;
+  left: 0;
+  top: -100%;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43,43,43,0.7);
+  z-index: 2000;
+  transition: all 500ms;
+  &.active{
+    top: 0;
+    opacity: 1;
+  }
+  &>div{
+    background-color: #fff;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 900px;
+    max-height: 400px;
+    border: 5px solid @green;
+    padding: 30px 70px;
+    text-align: center;
+    @media screen and (max-width: @mobile){
+      padding: 10px;
+      padding-bottom: 30px;
+      width: 100%;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      overflow: auto;
+    }
+  }
+  #btn-close{
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    cursor: pointer;
+    @media screen and (max-width: @mobile){
+      left: 0;
+      right: 0;
+      top: 10px;
+      margin: auto;
+    }
+  }
+}
+.form{
+  label{
+    line-height: 20px;
+    cursor: pointer;
+    @media screen and (max-width: @mobile){
+      display: inline;
+    }
+  }
+  br{
+    @media screen and (max-width: @mobile){
+      display: none;
+    }
+  }
+  .form-title{
+    text-transform: uppercase;
+    color: @black;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    @media screen and (max-width: @mobile){
+      margin-top: 30px;
+    }
+  }
+  #result{
+    color: @green;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 30px;
+    @media screen and (max-width: @mobile){
+      margin: 0;
+      margin-bottom: 20px;
+    }
+  }
+  .quote{
+    text-align: left;
+    font-size: 14px;
+  }
+  .checkboxes{
+    width: 600px;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 20px;
+    @media screen and (max-width: @mobile){
+      width: 100%;
+    }
+    &:after{
+      content: '';
+      clear: both;
+    }
+    .field{
+      float: left;
+      width: 50%;
+      text-align: left;
+      height: 50px;
+      @media screen and (max-width: @mobile){
+        width: 100%;
+      }
+    }
+  }
+  input[type="text"]{
+    background-color: @gray;
+    appearance: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    border: 0;
+    color: @black;
+    padding: 15px;
+    width: 100%;
+    &.invalid{
+      box-shadow: inset 0 0 15px red;
+    }
+  }
+  input[type="checkbox"]{
+    background-color: @gray;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    transition: all 500ms;
+    &:checked{
+      background-color: @green;
+    }
+    &:focus{
+      box-shadow: none;
+      outline: none;
+    }
+    @media screen and (max-width: @mobile){
+      float: left;
+    }
+  }
+  .email{
+    width: 290px;
+    @media screen and (max-width: @mobile){
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .phone{
+    width: 215px;
+    @media screen and (max-width: @mobile){
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .contact-data{
+    &>div{
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+    }
   }
 }
